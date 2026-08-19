@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
@@ -48,6 +49,12 @@ def create_app(config_class=Config):
     app.register_blueprint(admin_bp, url_prefix='/admin')
     app.register_blueprint(chat_bp, url_prefix='/chat')
     app.jinja_env.globals['timezone'] = pytz.timezone
+
+    # Vercel functions have ephemeral writable storage, so initialize a demo
+    # database in /tmp instead of relying on the repository instance folder.
+    if os.environ.get('VERCEL'):
+        with app.app_context():
+            db.create_all()
 
     @app.route('/')
     def index():

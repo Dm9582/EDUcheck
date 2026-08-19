@@ -1,10 +1,16 @@
 # Example modification in face_auth.py
-import face_recognition
+try:
+    import face_recognition
+except ImportError:  # Optional for serverless deployments without native face libraries.
+    face_recognition = None
 import pickle
 from app.models import User # Assuming User model is importable
 from app import db # Assuming db is importable
 
 def register_face(user_id, image_stream_or_path):
+    if face_recognition is None:
+        print('Face recognition is not installed in this deployment.')
+        return None
     try:
         # Load image (works with path or stream)
         image = face_recognition.load_image_file(image_stream_or_path)
@@ -32,6 +38,9 @@ def register_face(user_id, image_stream_or_path):
 
 # verify_face should already work with a stream
 def verify_face(user_id, image_stream):
+    if face_recognition is None:
+        print('Face recognition is not installed in this deployment.')
+        return False
     user = User.query.get(user_id)
     if not user or not user.face_encoding:
         print(f"User {user_id} not found or no face encoding stored.")

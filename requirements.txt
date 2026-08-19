@@ -32,6 +32,7 @@ python-socketio==5.11.1         # SocketIO implementation
 
 # Development and Utilities
 python-dotenv==1.0.1            # Environment variable management
+pytz==2024.2                    # Timezone support used by the app factory
 pytest==7.4.4                   # Testing framework
 black==24.1.1                   # Code formatting
 flake8==7.0.0                   # Code linting
