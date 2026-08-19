@@ -21,6 +21,10 @@ EDUcheck is a comprehensive web application designed to facilitate online educat
 3. Set up the database using Flask-Migrate.
 4. Run the application with flask run .
 
+## Live Demo
+
+The current Vercel deployment is available at [educheck-five.vercel.app](https://educheck-five.vercel.app).
+
 ## Deploy to Vercel
 
 The repository includes `main.py` and `vercel.json` for a Flask serverless deployment. Vercel uses temporary SQLite storage at `/tmp/educheck.db` and temporary upload storage, so data is not durable across cold starts. Face recognition is optional in the serverless build because its native dependency is not included in `requirements.txt`; the face endpoints return a safe failure response when it is unavailable. Real-time Socket.IO connections and durable uploads should use a production server, managed database, and object storage.
