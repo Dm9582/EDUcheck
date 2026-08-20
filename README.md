@@ -1,5 +1,6 @@
-### EDUcheck
-EDUcheck is a comprehensive web application designed to facilitate online education management. It provides a robust platform for teachers and students to interact, manage courses, assignments, and communicate in real-time.
+# EDUcheck
+
+**EDUcheck** is a Flask-based education management platform that lets teachers and students interact online in real time. Teachers can create courses, generate class codes, take attendance, and run live chat sessions, while students can enroll with a code, join classes, submit assignments, and chat with classmates. The project is organized into modules: `app/routes/` splits `auth`, `teacher`, `student`, `chat`, and `attendance` views; `app/models.py` defines the SQLAlchemy data layer (User, Course, Assignment, AttendanceSession, etc.); `app/templates/` holds Jinja2 pages across `auth`, `dashboards`, `courses`, `attendance`, `chat`, and `assignments` folders; and `app/utils/` houses helpers for face recognition and attendance logic.
 
 ## Features
 - User Authentication : Secure login and registration for students and teachers.
@@ -9,6 +10,7 @@ EDUcheck is a comprehensive web application designed to facilitate online educat
 - Attendance Tracking : Manage and monitor student attendance records.
 - Announcements : Teachers can post announcements for their classes.
 - Profile Management : Users can update and manage their profiles.
+
 ## Technologies Used
 - Frontend : HTML, CSS, JavaScript, Socket.IO
 - Backend : Flask, Flask-SQLAlchemy, Flask-SocketIO
@@ -23,7 +25,7 @@ EDUcheck is a comprehensive web application designed to facilitate online educat
 
 ## Live Demo
 
-The current Vercel deployment is available at [educheck-five.vercel.app](https://educheck-five.vercel.app).
+The current Vercel deployment is available at [educheck-rust.vercel.app](https://educheck-rust.vercel.app).
 
 ## Deploy to Vercel
 
